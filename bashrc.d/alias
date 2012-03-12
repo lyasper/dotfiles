@@ -1,0 +1,7 @@
+# ls 
+alias ls='ls --hide "*~" --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+
+# cd
+alias ..='cd ..'
