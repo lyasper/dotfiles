@@ -1,0 +1,33 @@
+(auto-image-file-mode t)
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq tool-bar-mode nil)
+(setq frame-title-format "@%b")
+(setq inhibit-startup-message t)
+(setq column-number-mode t)
+(setq make-backup-files 0)
+(setq indent-tabs-mode 0)
+(setq global-linum-mode t)
+(setq global-font-lock-mode t)
+(tool-bar-mode 0)
+(menu-bar-mode 0)  
+(scroll-bar-mode 0)  
+
+(setq global-hl-line-mode t)
+(setq default-major-mode 'text-mode)
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+
+
+
+(load-file "~/dotfiles/emacs.d/func.el")
+;; Now bind the delete line function to the F8 key
+(global-set-key [f8] 'nuke-line)
+(global-set-key [f5] 'goto-line)
+(global-set-key [f4] 'ibuffer)
+(global-set-key [f7] 'other-window)
+(global-set-key [f6] 'speedbar)
+
+
+;(require 'color-theme)
+;(color-theme-dark-blue)
+;(color-theme-simple-1)
