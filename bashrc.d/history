@@ -1,6 +1,16 @@
-export HISTCONTROL=ignoredups
+# history setting
+# Ctrl+r: search in history
+# !HISNUMBER: run command with HISNUMBER id
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+# export HISTTIMEFORMAT='%F %T '
+
+# export HISTCONTROL=ignoredups
+export HISTCONTROL="ignorespace:ignoredups:erasedups"
 # 忽略由冒号分割的这些命令
-export HISTIGNORE="[   ]*:&:bg:fg:exit:ls:cd ..:cd:ls -l:find:history:ifconfig:ii"
+export HISTIGNORE=""[   ]*:&:bg:fg:exit:pwd:ls:ls -l:ls -a:ls -ltr:cd -:cd:cd ..:whoami:uname -a:ifconfig:history:exit:top:ps:ps aux:find:find .:make:mount:blkid:sudo halt:emacs:vim:vi:emacs -nw:gedit:sudo -i:fg:xm:clear:"
+
 # 设置保存历史命令的文件大小
 export HISTFILESIZE=1000000000
 # 保存历史命令条数
