@@ -34,3 +34,4 @@ $reset' \
 	--old-line-format='${diffold}- %l
 $reset' \
 	--unchanged-line-format='${diffsame}  %l${reset}
+' "

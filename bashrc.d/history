@@ -9,7 +9,7 @@ shopt -s histappend
 # export HISTCONTROL=ignoredups
 export HISTCONTROL="ignorespace:ignoredups:erasedups"
 # 忽略由冒号分割的这些命令
-export HISTIGNORE=""[   ]*:&:bg:fg:exit:pwd:ls:ls -l:ls -a:ls -ltr:cd -:cd:cd ..:whoami:uname -a:ifconfig:history:exit:top:ps:ps aux:find:find .:make:mount:blkid:sudo halt:emacs:vim:vi:emacs -nw:gedit:sudo -i:fg:xm:clear:"
+export HISTIGNORE="[   ]*:&:bg:fg:exit:pwd:ls:ls -l:ls -a:ls -ltr:cd -:cd:cd ..:whoami:uname -a:ifconfig:history:exit:top:ps:ps aux:find:find .:make:mount:blkid:sudo halt:emacs:vim:vi:emacs -nw:gedit:sudo -i:fg:xm:clear:..:l:w:who:reboot:shutdown"
 
 # 设置保存历史命令的文件大小
 export HISTFILESIZE=1000000000

@@ -1,7 +1,41 @@
 # ls 
-alias ls='ls --hide "*~" --color=auto'
+alias ls='ls --hide "*~" --hide "#*#" --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
+#alias nls='ls -I "*.$1"'
+function nls()
+{
+  ls -I "*.$1"
+}
+
+function lsf()
+{
+  DIR="."
+  if [ -n $1 ];then
+     DIR=$1
+  fi
+  find $DIR -maxdepth 1 -type f -not  -name ".*" | xargs ls --color=auto -l
+}
+
+function lsd()
+{
+  DIR="."
+  if [ -n $1 ];then
+     DIR=$1
+  fi
+  find $DIR -maxdepth 1 -type d -not  -name ".*" | xargs ls --color=auto -ld
+}
+
+
 
 # cd
 alias ..='cd ..'
+
+
+# find
+
+
+
+# reboot/shutdown
+alias reboot='sudo reboot'
+alias shutdown='sudo shutdown -P now'

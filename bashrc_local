@@ -26,6 +26,9 @@ if [ -d ~/bashrc.d ]; then
   source ~/bashrc.d/git_completion
   # utility functions
   source ~/bashrc.d/funcs.sh
+  source ~/bashrc.d/alias
+  source ~/bashrc.d/color
+  source ~/bashrc.d/history
 fi
 
 if [ -d ~/bin ]; then
