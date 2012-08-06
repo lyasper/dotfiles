@@ -94,3 +94,7 @@ function untar()
   fi
 }
 
+function cpkey()
+{
+  cat .ssh/id_rsa.pub | ssh $@ 'cat >> ~/.ssh/authorized_keys2'
+}

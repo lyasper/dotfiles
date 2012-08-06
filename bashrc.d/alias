@@ -1,3 +1,5 @@
+alias grep="grep --color=auto -Hn"
+
 # ls 
 alias ls='ls --hide "*~" --hide "#*#" --color=auto'
 alias ll='ls -alF'
@@ -30,9 +32,32 @@ function lsd()
 
 # cd
 alias ..='cd ..'
+up() { [ $(( $1 + 0 )) -gt 0 ] && cd $(eval "printf '../'%.0s {1..$1}"); }
+ck() {(cd $1 && ls)}
+
 
 
 # find
+function findf()
+{
+  find . -type f | xargs -I {} grep --color=auto -Hn "$1" {}
+}
+
+function findc()
+{
+  find . -type f -name "*.c" -o -name "*.cpp" | xargs -I {} grep --color=auto -Hn "$1" {}
+}
+
+function findh()
+{
+  find . -type f -name "*.h" -o -name "*.hpp" | xargs -I {} grep --color=auto -Hn "$1" {}
+}
+
+function findj()
+{
+  find . -type f -name "*.java" | xargs -I {} grep --color=auto -Hn "$1" {}
+}
+
 
 
 
