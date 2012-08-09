@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias grep="grep --color=auto -Hn"
 
 # ls 
@@ -7,8 +9,15 @@ alias la='ls -A'
 #alias nls='ls -I "*.$1"'
 function nls()
 {
-  ls -I "*.$1"
+  arg="ls --hide \"*~\" --hide \"#*#\" --color=auto"
+  space=" "
+  for i in $@
+    do
+        arg=$arg$space"-I\"*$i\""
+    done
+  eval $arg
 }
+
 
 function lsf()
 {
@@ -64,3 +73,7 @@ function findj()
 # reboot/shutdown
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown -P now'
+
+alias 'ps?'='ps ax | grep '
+
+alias mnt='mount | column -t'

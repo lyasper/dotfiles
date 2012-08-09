@@ -58,15 +58,15 @@ mv $TMPFILE $2
 # Process/System related functions
 
 # Helper function for pp
-function my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
+function myps() { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
 
 # Show all processes owned by me
-function pp() { my_ps f | awk '!/awk/ && $0~var' var=${1:-".*"} ; }
+function pp() { myps f | awk '!/awk/ && $0~var' var=${1:-".*"} ; }
 
 # get IP address
 function myip()
 {
-  IP=`ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`;
+  IP=`ifconfig  | \grep 'inet addr:'| \grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`;
   echo $IP
 }
 
@@ -94,7 +94,38 @@ function untar()
   fi
 }
 
+# ssh-copy-id
 function cpkey()
 {
   cat .ssh/id_rsa.pub | ssh $@ 'cat >> ~/.ssh/authorized_keys2'
 }
+
+function pn()
+{
+  if [ $# -ne 1 ];then
+      echo "need 1 parameters"
+      return 1
+  fi
+
+  OLD_IFS="$IFS"
+  IFS=":"
+  STRS=( $1 )
+  IFS="$OLD_IFS"
+
+
+  FILENAME=${STRS[0]}
+  LNO=${STRS[1]}
+
+  if [ -z $LNO ];then
+      STARTLINE=1
+      ENDLINE=10
+  elif [ $LNO -lt 6 ];then
+      STARTLINE=1
+      ENDLINE=10
+  else
+      STARTLINE=`expr $LNO - 5`
+      ENDLINE=`expr $LNO + 5`
+  fi
+  sed = "$FILENAME" | sed 'N;s/\n/ /'  | sed -n "${STARTLINE},${ENDLINE}p"
+}
+

@@ -19,8 +19,12 @@
 
 ### PROMPT ###
 export PS1="[${LIGHT_GREEN}\$?@$\t ${GREEN}\u@\h${WHITE} ${CYAN}\!@\w${NO_COLOR}]\n\$ "
+
+# grep color
 export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
+# prefered editor
+export EDITOR=${EDITOR:-emacs}
 
 
 if [ -d ~/bashrc.d ]; then
@@ -31,6 +35,7 @@ if [ -d ~/bashrc.d ]; then
   source ~/bashrc.d/alias
   source ~/bashrc.d/color
   source ~/bashrc.d/history
+  source ~/bashrc.d/env
 fi
 
 if [ -d ~/bin ]; then
