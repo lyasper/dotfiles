@@ -38,8 +38,8 @@ if [ -d ~/bashrc.d ]; then
   source ~/bashrc.d/env
 fi
 
-if [ -d ~/bin ]; then
-  $PATH=~/bin:$PATH
-fi
+#if [ -d ~/bin ]; then
+#  $PATH=~/bin:$PATH
+#fi
 
 

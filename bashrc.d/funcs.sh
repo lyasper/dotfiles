@@ -129,3 +129,13 @@ function pn()
   sed = "$FILENAME" | sed 'N;s/\n/ /'  | sed -n "${STARTLINE},${ENDLINE}p"
 }
 
+function rmo()
+{
+  #rm -f !(survivior.txt)
+  echo ""
+}
+
+function listduplicate()
+{
+  find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+}
