@@ -17,7 +17,7 @@
 (setq show-paren-style 'parentheses)
 
 
-
+(add-to-list 'load-path "~/dotfiles/emacs.d/")
 (load-file "~/dotfiles/emacs.d/func.el")
 
 (global-set-key [f5] 'goto-line)
@@ -29,3 +29,5 @@
 ;(require 'color-theme)
 ;(color-theme-dark-blue)
 ;(color-theme-simple-1)
+
+(require 'list-register)
