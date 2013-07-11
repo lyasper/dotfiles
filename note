@@ -2,3 +2,7 @@
 sed -i -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[a-zA-Z]//g"
 
 tr -d [:cntrl:]
+
+#emacs tips
+c-x r SPC N	save current position to register N
+c-x r j N	jump to position in register N

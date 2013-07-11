@@ -1,4 +1,5 @@
 ;(auto-image-file-mode t)
+(setq initial-scratch-message "")
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq frame-title-format "@%b")
 (setq inhibit-startup-message t)
@@ -20,14 +21,23 @@
 (add-to-list 'load-path "~/dotfiles/emacs.d/")
 (load-file "~/dotfiles/emacs.d/func.el")
 
+(global-set-key [f1] 'vi-open-line)
 (global-set-key [f5] 'goto-line)
 (global-set-key [f4] 'ibuffer)
 (global-set-key [f7] 'other-window)
 ;(global-set-key [f6] 'speedbar)
 
 
-;(require 'color-theme)
-;(color-theme-dark-blue)
+
+(global-set-key "\C-k" 'kill-whole-line)
+
+
+(add-to-list 'load-path "~/dotfiles/emacs.d/color-theme/")
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-hober)
 ;(color-theme-simple-1)
 
 (require 'list-register)
+
+
