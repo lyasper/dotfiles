@@ -4,7 +4,7 @@ FROM=$PWD
 TO=$HOME
 
 
-if [ -f $TO/bashrc.d ]; then
+if [ -d $FROM/bashrc.d ]; then
     ln -s $FROM/bashrc.d $TO/bashrc.d
 fi
 ln -s $FROM/dot_emacs  $TO/.emacs
