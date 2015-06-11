@@ -31,7 +31,7 @@
 
 (global-set-key "\C-k" 'kill-whole-line)
 
-
+; for color
 (add-to-list 'load-path "~/dotfiles/emacs.d/color-theme/")
 (require 'color-theme)
 (color-theme-initialize)
@@ -41,3 +41,15 @@
 (require 'list-register)
 
 
+; for auto complete
+(add-to-list 'load-path "~/dotfiles/emacs.d/auto-complete/")
+(add-to-list 'load-path "~/dotfiles/emacs.d/popup-el/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
+(global-auto-complete-mode t)
+
+
+; intention
+(setq-default c-basic-offset 4
+                  tab-width 4
+                  indent-tabs-mode t)
