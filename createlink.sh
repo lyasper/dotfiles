@@ -13,7 +13,8 @@ if [ -f $TO/emacs.d ]; then
     ln -s $FROM/emacs.d   $TO/emacs.d 
 fi
 ln -s $FROM/bashrc_local  $TO/.bashrc_local
-
+mkdir -p $HOME/.ssh
+ln -s $FROM/dot_ssh $HOME/.ssh/config
 
 #if [ -f ~/.bashrc ]; then
 #cat <<EOF >> $TO/.bashrc  

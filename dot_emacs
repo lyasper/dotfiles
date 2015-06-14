@@ -1,9 +1,28 @@
 ;(auto-image-file-mode t)
-(setq initial-scratch-message "")
+(line-number-mode 1)
+(column-number-mode 1)
+(setq-default fill-column 72)
+(setq inhibit-default-init t)
+(setq inhibit-splash-screen t)
+(setq require-final-newline t)
+(setq visible-bell t)
+(setq kill-ring-max 200)
+(setq dired-recursive-copies 'top)  
+(setq dired-recursive-deletes 'top) 
 (fset 'yes-or-no-p 'y-or-n-p)
+(setq initial-scratch-message "")
+(display-time-mode 1)
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+(setq display-time-use-mail-icon t)
+(setq display-time-interval 10)
+(menu-bar-mode -1)
+(global-linum-mode 1)
+
+(setq make-backup-files nil)
+(setq initial-scratch-message "")
 (setq frame-title-format "@%b")
 (setq inhibit-startup-message t)
-(setq column-number-mode t)
 (setq make-backup-files 0)
 (setq indent-tabs-mode 0)
 (setq global-linum-mode t)
@@ -21,14 +40,30 @@
 (add-to-list 'load-path "~/dotfiles/emacs.d/")
 (load-file "~/dotfiles/emacs.d/func.el")
 
+(require 'ibuffer)
+(require 'ido)
+
 (global-set-key [f1] 'vi-open-line)
-(global-set-key [f5] 'goto-line)
+(global-set-key (kbd "<f2>") 'ibuffer)
+(global-set-key (kbd "<f3>")  'set-mark-command)
 (global-set-key [f4] 'ibuffer)
+(global-set-key [f5] 'goto-line)
+
 (global-set-key [f7] 'other-window)
 ;(global-set-key [f6] 'speedbar)
 
+(global-set-key (kbd "<f8>") 'pop-tag-mark)
+(define-key global-map [f9] 'bookmark-jump)
+(define-key global-map [f10] 'bookmark-set)
+(global-set-key (kbd "<f11>") 'kill-buffer)
 
+(defun switch-to-previous-buffer ()
+      (interactive)
+      (switch-to-buffer (other-buffer (current-buffer) 1)))
+(global-set-key (kbd "<f6>") 'switch-to-previous-buffer)
 
+(global-set-key (kbd "C-x g e") 'end-of-buffer)
+(global-set-key (kbd "C-x g a") 'beginning-of-buffer)
 (global-set-key "\C-k" 'kill-whole-line)
 
 ; for color
@@ -43,7 +78,6 @@
 
 ; for auto complete
 (add-to-list 'load-path "~/dotfiles/emacs.d/auto-complete/")
-(add-to-list 'load-path "~/dotfiles/emacs.d/popup-el/")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
 (global-auto-complete-mode t)
@@ -53,3 +87,8 @@
 (setq-default c-basic-offset 4
                   tab-width 4
                   indent-tabs-mode t)
+(defun linux-c-mode() 
+   (define-key c-mode-map [return] 'indent) 
+   (c-toggle-auto-newline) 
+   (c-toggle-hungry-state) 
+)
