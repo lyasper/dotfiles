@@ -77,3 +77,5 @@ alias shutdown='sudo shutdown -P now'
 alias 'ps?'='ps ax | grep '
 
 alias mnt='mount | column -t'
+alias emacs='LC_CTYPE=zh_CN.utf8 emacs -nw'
+alias emacsw='LC_CTYPE=zh_CN.utf8 emacs'

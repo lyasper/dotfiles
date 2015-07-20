@@ -1,6 +1,8 @@
 ;(auto-image-file-mode t)
 (line-number-mode 1)
 (column-number-mode 1)
+(tool-bar-mode -1)
+(global-set-key (kbd "C-SPC") 'nil)
 (setq-default fill-column 72)
 (setq inhibit-default-init t)
 (setq inhibit-splash-screen t)
@@ -28,7 +30,6 @@
 (setq global-linum-mode t)
 (setq global-font-lock-mode t)
 ;(tool-bar-mode 0)
-(menu-bar-mode 0)  
 ;(scroll-bar-mode 0)  
 
 (global-hl-line-mode t)
@@ -45,7 +46,8 @@
 
 (global-set-key [f2] 'vi-open-line)
 (global-set-key (kbd "<f3>")  'set-mark-command)
-(global-set-key [f4] 'ibuffer)
+;(global-set-key [f4] 'ibuffer)
+(global-set-key [f4] 'undo)
 
 
 (global-set-key [f5] 'goto-line)
@@ -55,7 +57,7 @@
 
 (define-key global-map [f9] 'bookmark-jump)
 (define-key global-map [f10] 'bookmark-set)
-(global-set-key (kbd "<f12>") 'kill-buffer)
+(global-set-key (kbd "<f12>") 'shell-command)
 
 (defun switch-to-previous-buffer ()
       (interactive)
