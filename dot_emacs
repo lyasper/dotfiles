@@ -66,7 +66,7 @@
 
 (global-set-key (kbd "C-x g e") 'end-of-buffer)
 (global-set-key (kbd "C-x g a") 'beginning-of-buffer)
-(global-set-key "\C-k" 'kill-whole-line)
+(global-set-key (kbd "M-k") 'kill-whole-line)
 
 ; for color
 (add-to-list 'load-path "~/dotfiles/emacs.d/color-theme/")
@@ -95,3 +95,8 @@
    (c-toggle-auto-newline) 
    (c-toggle-hungry-state) 
 )
+
+
+; org mode, should install it first
+
+ (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
