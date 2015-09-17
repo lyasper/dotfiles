@@ -100,3 +100,5 @@
 ; org mode, should install it first
 
  (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+ (require 'xcscope)
+ (setq cscope-do-not-update-database t)
