@@ -1,0 +1,28 @@
+#!/bin/bash -x
+
+set -e
+
+if [ $# -ne 1 ];then
+    echo "which env folder to fake root?"
+    exit 1
+fi
+
+ENVFOLDER=$1
+REALROOT=${REALROOT:-/opt/precise_root/}
+
+# create dirs
+mkdir -p $ENVFOLDER/_files $ENVFOLDER/rootfs
+
+# mount it
+#sudo unionfs-fuse -o cow,max_files=32768 -o allow_other,use_ino,suid,dev,nonempty $REALROOT=RO:$ENVFOLDER/_files=RW $ENVFOLDER/rootfs
+
+sudo unionfs-fuse -o cow,max_files=32768 -o allow_other,use_ino,suid,dev $ENVFOLDER/_files=RW:$REALROOT=RO $ENVFOLDER/rootfs
+# before chroot it
+sudo mount -o bind /dev $ENVFOLDER/rootfs/dev
+sudo mount -o bind /sys $ENVFOLDER/rootfs/sys
+sudo mount -t proc proc $ENVFOLDER/rootfs/proc
+
+export HOME=/root
+export LC_ALL=C
+
+sudo chroot $ENVFOLDER/rootfs

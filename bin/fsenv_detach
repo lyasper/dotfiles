@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+echo $#
+if [ $# -ne 1 ];then
+    echo "which env folder to fake root?"
+    exit 1
+fi
+
+ENVFOLDER=$1
+sudo umount $ENVFOLDER/rootfs/dev
+sudo umount $ENVFOLDER/rootfs/sys
+sudo umount $ENVFOLDER/rootfs/proc
+sudo umount $ENVFOLDER/rootfs/
