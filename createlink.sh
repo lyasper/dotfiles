@@ -12,15 +12,15 @@ ln -s $FROM/gitconfig  $TO/.gitconfig
 if [ -f $TO/emacs.d ]; then
     ln -s $FROM/emacs.d   $TO/emacs.d 
 fi
-ln -s $FROM/bashrc_local  $TO/.bashrc_local
+ln -s $FROM/bashrc_local  $TO/.bashrc_local_private
 mkdir -p $HOME/.ssh
 ln -s $FROM/dot_ssh $HOME/.ssh/config
 
-#if [ -f ~/.bashrc ]; then
-#cat <<EOF >> $TO/.bashrc  
-#if [ -f ~/.bashrc_local ]; then
-#    . ~/.bashrc_local
-#fi
-#
-#EOF
-#fi
+if [ -f ~/.bashrc ]; then
+	cat <<EOF >> $TO/.bashrc  
+if [ -f ~/.bashrc_local_private ]; then
+    source ~/.bashrc_local_private
+fi
+EOF
+	source ~/.bashrc_local_private
+fi

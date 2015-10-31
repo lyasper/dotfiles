@@ -129,13 +129,25 @@ function pn()
   sed = "$FILENAME" | sed 'N;s/\n/ /'  | sed -n "${STARTLINE},${ENDLINE}p"
 }
 
-function rmo()
-{
-  #rm -f !(survivior.txt)
-  echo ""
-}
-
 function listduplicate()
 {
   find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+}
+
+function encfile()
+{
+	if [ $# -lt  2 ];then
+		echo "usage: cmd file newfile"
+	fi
+	openssl enc -aes-256-cbc -in  "${!}" -out "${2}" -pass file:~/bashrc.d/passwd
+	
+}
+
+function decfile()
+{
+	if [ $# -lt  2 ];then
+		echo "usage: cmd file newfile"
+	fi
+	openssl enc -aes-256-cbc -d -in  "${!}" -out "${2}" -pass file:~/bashrc.d/passwd
+	
 }

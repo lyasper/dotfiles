@@ -36,6 +36,7 @@ if [ -d ~/bashrc.d ]; then
   source ~/bashrc.d/color
   source ~/bashrc.d/history
   source ~/bashrc.d/env
+  source ~/bashrc.d/go.env
 fi
 
 if [ -d ~/mybin ]; then
