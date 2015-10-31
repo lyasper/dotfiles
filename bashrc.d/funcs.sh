@@ -139,7 +139,7 @@ function encfile()
 	if [ $# -lt  2 ];then
 		echo "usage: cmd file newfile"
 	fi
-	openssl enc -aes-256-cbc -in  "${!}" -out "${2}" -pass file:~/bashrc.d/passwd
+	openssl enc -aes-256-cbc -in  "${1}" -out "${2}" -pass file:"passwd"
 	
 }
 
@@ -148,6 +148,6 @@ function decfile()
 	if [ $# -lt  2 ];then
 		echo "usage: cmd file newfile"
 	fi
-	openssl enc -aes-256-cbc -d -in  "${!}" -out "${2}" -pass file:~/bashrc.d/passwd
+	openssl enc -aes-256-cbc -d -in  "${1}" -out "${2}" -pass file:"passwd"
 	
 }
