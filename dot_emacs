@@ -102,6 +102,10 @@
 (setq load-path (cons "~/dotfiles/emacs.d/org/lisp" load-path))	
 (setq load-path (cons "~/dotfiles/emacs.d/org/contrib/lisp" load-path))
 
- (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
- (require 'xcscope)
- (setq cscope-do-not-update-database t)
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(require 'xcscope)
+(setq cscope-do-not-update-database t)
+(require 'go-mode-autoloads)
+(require 'go-autocomplete)
+;(require 'auto-complete-config)
+(ac-config-default)
