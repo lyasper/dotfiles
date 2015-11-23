@@ -6,3 +6,11 @@ tr -d [:cntrl:]
 #emacs tips
 c-x r SPC N	save current position to register N
 c-x r j N	jump to position in register N
+
+
+# install developments:
+sudo apt-get install build-essential
+or 
+sudo yum groupinstall 'Development Tools'
+
+#

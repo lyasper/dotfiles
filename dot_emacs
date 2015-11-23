@@ -40,23 +40,31 @@
 
 (add-to-list 'load-path "~/dotfiles/emacs.d/")
 (load-file "~/dotfiles/emacs.d/func.el")
+(load-file "~/dotfiles/emacs.d/graphviz-dot-mode.el")
 
 (require 'ibuffer)
 (require 'ido)
 
-(global-set-key [f2] 'vi-open-line)
+
+(global-set-key [f2] 'vi-open-line) ; C-u => before
+
 (global-set-key (kbd "<f3>")  'set-mark-command)
-;(global-set-key [f4] 'ibuffer)
+;
+(global-set-key [f4] 'ibuffer)
 (global-set-key [f4] 'undo)
 
 
 (global-set-key [f5] 'goto-line)
 ;(global-set-key [f6] 'swith-to-prevous-buffer)
 (global-set-key [f7] 'other-window)
-(global-set-key (kbd "<f8>") 'pop-tag-mark)
+(global-set-key (kbd "<f8>") 'find-tag)
+(global-set-key (kbd "S-<f8>") 'pop-tag-mark)
 
-(define-key global-map [f9] 'bookmark-jump)
-(define-key global-map [f10] 'bookmark-set)
+(define-key global-map [f9] 'point-to-register)
+(global-set-key (kbd "S-<f9>") 'copy-to-register)
+(define-key global-map [f10] 'jump-to-register)
+(global-set-key (kbd "S-<f10>") 'insert-register)
+
 (global-set-key (kbd "<f12>") 'shell-command)
 
 (defun switch-to-previous-buffer ()
@@ -109,3 +117,5 @@
 (require 'go-autocomplete)
 ;(require 'auto-complete-config)
 (ac-config-default)
+
+

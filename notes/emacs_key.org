@@ -1,0 +1,78 @@
+
+
+* hot key
+
+|--------+-------------------|
+| f2     | vi open file      |
+| C-u f2 | open file above   |
+| f3     | set mark          |
+| f4     | undo              |
+| f5     | goto line         |
+| f6     | previous buffer   |
+| f7     | other window      |
+| f8     | find-tag          |
+| S-f8   | pop-tag-mark      |
+| f9     | point-to-register |
+| S-f9   | copt-to-register  |
+| f10    | jump-to-register  |
+| S-f10  | insert-registe    |
+| f12    | shell command     |
+
+
+* tags
+  etags file_lists
+
+* cscope
+* dired
+** brow
+   | q        | quit                        |
+   | ^        | up                          |
+   | s        | order by time or name       |
+   | n, c-n   | next line                   |
+   | p, c-p   | previous                    |
+   | M-{, M-} | move between marked file    |
+   | <, >     | move between file in buffer |
+   | C-M-u    | move between dir in buffer  |
+
+** access
+  | o         | open in other frame            |
+  | e, f, RET | open file                      |
+  | v         | open in view mode, quit with q |
+  |           |                                |
+  
+** Edit
+   | +         | create folder              |
+   | R         | rename / move              |
+   | C         | copy                       |
+   | S         | softlink, absolute path    |
+   | Y         | softlink, relative path    |
+   | H         | hardlink                   |
+   | D         | delete marked file         |
+   |-----------+----------------------------|
+   | m         | mark                       |
+   | d         | mark as delete             |
+   | x         | delete items  maked by 'd' |
+   | u         | unmark                     |
+   | U         | unmark all                 |
+   | backspace | remove last mark           |
+   | ~         | mark backup file as 'D'    |
+   | #         | mark auto-save file as 'D' |
+   | * *       | mark exe file              |
+   | * /       | mark folder                |
+   | t         | switch for mark / unmark   |
+   |           |                            |
+  
+* other
+** insert shell command output
+   c-u f12 SHELLCMD
+** descrie key
+   c-h k
+
+* org
+** table
+| meta + -> <- up down | mode row/column |
+| C-c C-e h            | export as html  |
+
+* graphviz
+| C-c c | compile |
+|       |         |
