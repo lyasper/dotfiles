@@ -49,8 +49,7 @@
 (global-set-key [f2] 'vi-open-line) ; C-u => before
 
 (global-set-key (kbd "<f3>")  'set-mark-command)
-;
-(global-set-key [f4] 'ibuffer)
+;(global-set-key [f4] 'ibuffer)
 (global-set-key [f4] 'undo)
 
 
