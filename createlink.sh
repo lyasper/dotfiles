@@ -15,6 +15,8 @@ fi
 ln -s $FROM/bashrc_local  $TO/.bashrc_local_private
 mkdir -p $HOME/.ssh
 ln -s $FROM/dot_ssh $HOME/.ssh/config
+ln -s $FROM/tmux/dot_tmux.conf  $TO/.tmux.conf
+ln -s $FROM/tmux/dot_tmux.d     $TO/.tmux
 
 if [ -f ~/.bashrc ]; then
 	cat <<EOF >> $TO/.bashrc  
