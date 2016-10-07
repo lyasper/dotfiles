@@ -1,7 +1,7 @@
 ;(auto-image-file-mode t)
 (line-number-mode 1)
 (column-number-mode 1)
-(tool-bar-mode -1)
+;(tool-bar-mode -1)
 (global-set-key (kbd "C-SPC") 'nil)
 (setq-default fill-column 72)
 (setq inhibit-default-init t)
@@ -131,3 +131,8 @@
 
 (global-set-key (kbd "ESC <up>") 'swap-line-up)
 (global-set-key (kbd "ESC <down>") 'swap-line-down)
+
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
