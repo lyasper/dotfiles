@@ -1,1 +1,0 @@
-/home/liyang/dotfiles/tmux/dot_tmux.d
