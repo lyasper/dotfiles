@@ -3,7 +3,7 @@
 alias grep="grep --color=auto -Hn"
 
 # ls 
-alias ls='ls --hide "*~" --hide "#*#" --color=auto'
+alias ls='ls'
 alias ll='ls -alF'
 alias la='ls -A'
 #alias nls='ls -I "*.$1"'

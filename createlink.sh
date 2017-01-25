@@ -9,7 +9,7 @@ if [ -d $FROM/bashrc.d ]; then
 fi
 ln -s $FROM/dot_emacs  $TO/.emacs
 ln -s $FROM/gitconfig  $TO/.gitconfig
-if [ -f $TO/emacs.d ]; then
+if [ ! -f $TO/emacs.d ]; then
     ln -s $FROM/emacs.d   $TO/emacs.d 
 fi
 ln -s $FROM/bashrc_local  $TO/.bashrc_local_private
