@@ -151,3 +151,8 @@ function decfile()
 	openssl enc -aes-256-cbc -d -in  "${1}" -out "${2}" -pass file:"passwd"
 	
 }
+
+function pidenv() 
+{ 
+    xargs -n 1 -0 < /proc/${1:-self}/environ
+}
