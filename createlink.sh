@@ -17,6 +17,8 @@ mkdir -p $HOME/.ssh
 ln -s $FROM/dot_ssh $HOME/.ssh/config
 ln -s $FROM/tmux/dot_tmux.conf  $TO/.tmux.conf
 ln -s $FROM/tmux/dot_tmux.d     $TO/.tmux
+mkdir -p $HOME/.vagrant.d/
+ln -s $FROM/vagrant/Vagrantfile  $HOME/.vagrant.d/Vagrantfile
 
 if [ -f ~/.bashrc ]; then
 	cat <<EOF >> $TO/.bashrc  
